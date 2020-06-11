@@ -1,4 +1,4 @@
-package com.test.kavalkou;
+package com.test.kavalkou.direct;
 
 import java.util.Arrays;
 import java.util.List;

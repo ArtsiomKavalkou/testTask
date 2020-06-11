@@ -1,17 +1,17 @@
-package com.test.kavalkou;
+package com.test.kavalkou.recursive;
 
 import java.util.*;
 
 public class SchedulerImpl implements Scheduler {
     private List<Task> allTasks;
-    private Queue<Task> stack;
+    private Queue<Task> queue;
 
     @Override
     public List<Task> schedule(List<Task> tasks) {
         allTasks = tasks;
-        stack = new LinkedList<>();
+        queue = new LinkedList<>();
         sort(tasks);
-        return new ArrayList<>(stack);
+        return new ArrayList<>(queue);
     }
 
     private void sort(List<Task> tasks) {
@@ -28,7 +28,7 @@ public class SchedulerImpl implements Scheduler {
                 sort(dependencies);
 
                 singleTask.setVisited(true);
-                stack.add(singleTask);
+                queue.add(singleTask);
             }
         }
     }
